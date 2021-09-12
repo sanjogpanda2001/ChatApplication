@@ -1,5 +1,6 @@
 package com.example.chatapp
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
@@ -14,11 +15,12 @@ login_button.setOnClickListener {
     val email=email_login.text.toString()
     val pass=password_login.text.toString()
     FirebaseAuth.getInstance().signInWithEmailAndPassword(email,pass)
-       /* .addOnCompleteListener{
-
+        .addOnCompleteListener{
+            val intent= Intent(this,LatestMessagesActivity::class.java)
+            startActivity(intent)
         }.addOnFailureListener{
 
-        } */
+        }
 }
 back_to_regs.setOnClickListener {
     finish()

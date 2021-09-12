@@ -65,6 +65,8 @@ var selectedphotoUri: Uri?=null
                 //if successful
                 Log.d("Main","succesfully created user with id ${it.result?.user?.uid}")
                 uploadImagetoFirebaseStorage()
+                val intent=Intent(this,LatestMessagesActivity::class.java)
+                startActivity(intent)
             }.addOnFailureListener{
                 Log.d("Main","failed to create user: ${it.message}")
                 Toast.makeText(this,"failed to create user: ${it.message}",Toast.LENGTH_SHORT).show()
